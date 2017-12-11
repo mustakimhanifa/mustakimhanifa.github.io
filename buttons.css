@@ -1,0 +1,20 @@
+#sesat {
+        background-color: #0F563F;
+        display: block;
+        position: relative;
+        margin: 0px auto;
+        top: 0px;
+        width: 60%;
+        height: 40px;
+        
+
+        border-radius: 3px;
+        font-size: 15px;
+        text-align: center;
+        color: black;
+     
+    }
+#sesat:active {
+  background-color: Transparent;
+  transform: translateY(4px);
+}

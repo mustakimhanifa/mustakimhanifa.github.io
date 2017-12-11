@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-red.min.css" />
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+<link rel="stylesheet" href="stylelogin.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+<body>
+ <!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+  <button onclick="w3_close()" class="w3-bar-item w3-large">Tutup &times;</button>
+  <a href="index.html" class="w3-bar-item w3-button">Halaman Utama</a>
+  <a href="lapor.html" class="w3-bar-item w3-button">Lapor Diri</a>  
+  <a href="pilihlokasi.html" class="w3-bar-item w3-button">Lokasi</a>
+  <a href="daftarJemaah.html" class="w3-bar-item w3-button">Daftar Jemaah</a>
+  <a href="senarai.html" class="w3-bar-item w3-button">Senarai Jemaah</a>
+  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-inbox"></i>&nbsp&nbspAduan Jemaah</a>
+  <a href="#" class="w3-bar-item w3-button"><button id="signOutBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+        Log Keluar<i class="button-right-icon material-icons">account_circle</i>
+      </button></a>
+</div>
+
+<!-- Page Content -->
+<div class="w3-teal">
+  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+  <div class="w3-container">
+    <h6><b>ADUAN JEMAAH</b></h6>
+  </div>
+</div>
+      <h3><center>LAPORAN JEMAAH SAKIT</center></h3><br>
+      <table border=1 width="100%" align="center" height="80%">
+          <thead>
+              <tr>
+                  <td align="center">NAMA</td>
+                  <td align="center">SAKIT</td>
+                  
+              </tr>
+          </thead>
+          <tbody id="table_body">
+             
+          </tbody>
+      </table>       
+
+<script>
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+<script>
+   // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAt024MrvhPHqQ7UFPw2DvEk0HCpkDhFaA",
+    authDomain: "pilgrims-database.firebaseapp.com",
+    databaseURL: "https://pilgrims-database.firebaseio.com",
+    projectId: "pilgrims-database",
+    storageBucket: "pilgrims-database.appspot.com",
+    messagingSenderId: "426442286486"
+  };
+
+  firebase.initializeApp(config);
+</script>
+
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="aduanJemaah.js"></script>
+</body>
+</html>

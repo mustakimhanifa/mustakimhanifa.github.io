@@ -1,0 +1,127 @@
+<!DOCTYPE>
+<html>
+<head>
+
+    <meta charset='utf-8' />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-red.min.css" />
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+<link rel="stylesheet" href="stylelogin.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+	
+	<script>
+		function setFocus(f)
+		{
+			f.elements["name"].focus();
+		}
+	</script>
+	<script type="text/javascript">
+		function add(){
+
+			var name = document.frm.a.value;
+			var ic = document.frm.aa.value;
+			var nb = document.frm.n.value;
+			var np = document.frm.nn.value
+
+			alert("Name "+name+"\r\n"+"IC: "+ic+"\r\n"+"No bilik: "+nb+"\r\n"+"No telefon: "+np);
+
+			    var database = firebase.database();
+
+			        var ref = database.ref('DAFTAR JEMAAH');
+
+			        var data = {
+			          NAME: name,
+			          IC: ic,
+					  BILIK: nb,
+					  TELEFON: np,
+			        }
+			        ref.push(data);
+		}
+
+		  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAt024MrvhPHqQ7UFPw2DvEk0HCpkDhFaA",
+    authDomain: "pilgrims-database.firebaseapp.com",
+    databaseURL: "https://pilgrims-database.firebaseio.com",
+    projectId: "pilgrims-database",
+    storageBucket: "pilgrims-database.appspot.com",
+    messagingSenderId: "426442286486"
+  };
+
+  firebase.initializeApp(config);
+	</script>
+	
+</head>
+
+<body>
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+  <button onclick="w3_close()" class="w3-bar-item w3-large">Tutup &times;</button>
+  <a href="index.html" class="w3-bar-item w3-button">Halaman Utama</a>
+  <a href="lapor.html" class="w3-bar-item w3-button">Lapor Diri</a>
+  <a href="pilihlokasi.html" class="w3-bar-item w3-button">Lokasi</a>
+  <a href="#" class="w3-bar-item w3-button">Daftar Jemaah</a>
+  <a href="senarai.html" class="w3-bar-item w3-button">Senarai Jemaah</a>
+  <a href="aduan.html" class="w3-bar-item w3-button"><i class="fa fa-inbox"></i>&nbsp&nbspAduan Jemaah</a>
+  <a href="#" class="w3-bar-item w3-button"><button id="signOutBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+        Log Keluar<i class="button-right-icon material-icons">account_circle</i>
+      </button></a>
+</div>
+
+<!-- Page Content -->
+<div class="w3-teal">
+  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+  <div class="w3-container">
+    <h6><b>DAFTAR JEMAAH</b></h6>
+  </div>
+</div>
+
+
+	<form name="frm">
+	<center>
+	<table border=1 cellpadding=5 cellspacing=0 align=center height=5px >
+	<tr align=center>
+			<td colspan=2><b>DAFTAR</td>
+	</tr>
+	<tr>
+			<td><b>Nama</td>
+			<td><input type="text" name="a"></td>
+	</tr>
+	<tr>
+			<td><b>IC</td>
+			<td><input type="text" name="aa"></td>
+	</tr>
+	<tr>
+			<td><b>No Bilik</td>
+			<td><input type="text" name="n"></td>
+	</tr>
+	<tr>
+			<td><b>No Telefon</td>
+			<td><input type="text" name="nn"></td>
+	</tr>
+	<tr>
+		<td colspan=2><center><input type="button" name="z" onclick="add()" value="Submit">
+							  <input type="reset" value="Reset" onclick="setFocus(this.form);" /></td>
+	</tr>
+</form>
+</table>
+</center>
+<script>
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+	<!--Nama: <input type="text" name="a"><br><br>
+	IC:<input type="text" name="aa"><br><br>
+	<input type="button" name="z" onclick="add()" value="SUBMIT"> <br>
+	</form>-->
+</body>
+</html>
